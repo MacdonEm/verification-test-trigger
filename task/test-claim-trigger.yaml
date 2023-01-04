@@ -247,7 +247,7 @@ spec:
             cat << EOF > slack_message.json
         {'text': '*|${RELEASE_VERSION}.X Integration|* :wrench:  ClusterPool clusters failed to come online after checkout. See job: $BUILD_URL CICD needs to take a look!'}
         EOF
-            curl -X POST -H 'Content-type: application/json' --data @slack_message.json https://hooks.slack.com/services/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
+            curl -X POST -H 'Content-type: application/json' --data @slack_message.json $SLACK_URL
             make clusterpool/checkin CLUSTERPOOL_CLUSTER_CLAIM=$HUB_CLUSTER_CLAIM
             make clusterpool/checkin CLUSTERPOOL_CLUSTER_CLAIM=$IMPORT_CLUSTER_CLAIM
             exit 1
